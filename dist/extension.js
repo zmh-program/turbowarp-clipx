@@ -1,1 +1,1 @@
-(()=>{"use strict";class s{constructor(){}}console.log(Scratch,class extends s{})})();
+(()=>{"use strict";var t,e;!function(t){let e,s,n,r;e||(e={}),s||(s={}),n||(n={}),r||(r={})}(t||(t={})),e=new class{constructor(){}getInfo(){}},t.extensions.register(e)})();
