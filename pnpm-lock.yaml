@@ -1,5 +1,10 @@
 lockfileVersion: '6.0'
 
+dependencies:
+  '@turbowarp/types':
+    specifier: ^0.0.7
+    version: 0.0.7
+
 devDependencies:
   ts-loader:
     specifier: ^9.4.2
@@ -57,6 +62,10 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
+
+  /@turbowarp/types@0.0.7:
+    resolution: {integrity: sha512-XmBy3rx9XT/5i/et9GVOikjcglBNFF3uZ1xVl6sVeaxA42bWgRFbNko/WFWHbedz0PeM3dzb38AHEebY6FhC/g==}
+    dev: false
 
   /@types/eslint-scope@3.7.4:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}

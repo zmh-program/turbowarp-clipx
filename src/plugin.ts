@@ -1,3 +1,4 @@
+import VM from "scratch-vm"
 export class AbstractExtension {
     constructor() {
     }
