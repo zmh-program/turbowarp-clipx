@@ -12,6 +12,7 @@
             "scratch-audio": ["./node_modules/@turbowarp/types/index.d.ts"],
             "scratch-parser": ["./node_modules/@turbowarp/types/index.d.ts"],
             "scratch-blocks": ["./node_modules/@turbowarp/types/index.d.ts"],
+            "scratch-vm-extension": ["./src/types/index.d.ts"],
         },
         "strictNullChecks": true,
         "noImplicitAny": true,
