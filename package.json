@@ -1,0 +1,29 @@
+{
+  "name": "turbowarp-ts-plugin",
+  "version": "1.0.0",
+  "description": "📦 TurboWarp development-env extension plugin",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zmh-program/turbowarp-ts-plugin.git"
+  },
+  "keywords": [
+    "turbowarp",
+    "typescript"
+  ],
+  "author": "zmh-program",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zmh-program/turbowarp-ts-plugin/issues"
+  },
+  "homepage": "https://github.com/zmh-program/turbowarp-ts-plugin#readme",
+  "devDependencies": {
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.3",
+    "webpack": "^5.77.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
