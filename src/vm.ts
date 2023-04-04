@@ -1,35 +1,29 @@
-// extension.d.ts By TurboWarp/types, follow Apache2 License ( Version 2.0, January 2004 )
-
-declare namespace Scratch {
+export namespace Scratch {
     namespace ArgumentType {
-        const ANGLE: 'angle';
-        const BOOLEAN: 'Boolean';
-        const COLOR: 'color';
-        const IMAGE: 'image';
-        const MATRIX: 'matrix';
-        const NOTE: 'note';
-        const NUMBER: 'number';
-        const STRING: 'string';
+        const ANGLE= 'angle';
+        const BOOLEAN = 'Boolean';
+        const COLOR = 'color';
+        const IMAGE = 'image';
+        const MATRIX = 'matrix';
+        const NOTE = 'note';
+        const NUMBER = 'number';
+        const STRING = 'string';
     }
 
     namespace BlockType {
-        const BOOLEAN: 'Boolean';
-        /** @deprecated very incomplete and not useful yet */
-        const BUTTON: 'button';
-        const COMMAND: 'command';
-        /** @deprecated does not work in compiler */
-        const CONDITIONAL: 'conditional';
-        /** @deprecated use HAT instead */
-        const EVENT: 'event';
-        const HAT: 'hat';
-        /** @deprecated does not work in compiler */
-        const LOOP: 'loop';
-        const REPORTER: 'reporter';
+        const BOOLEAN = 'Boolean';
+        const BUTTON = 'button';
+        const COMMAND = 'command';
+        const CONDITIONAL = 'conditional';
+        const EVENT = 'event';
+        const HAT = 'hat';
+        const LOOP = 'loop';
+        const REPORTER = 'reporter';
     }
 
     namespace TargetType {
-        const SPRITE: 'sprite';
-        const STAGE: 'stage';
+        const SPRITE = 'sprite';
+        const STAGE = 'stage';
     }
 
     interface AngleArgument {
@@ -241,11 +235,10 @@ declare namespace Scratch {
     }
 
     namespace extensions {
-        function register(extensionObject: Extension): void;
-
+        function register(extensionObject: Extension): void { }
         /**
          * True if the extension is running unsandboxed, otherwise undefined.
          */
-        const unsandboxed: undefined | boolean;
+        const unsandboxed: undefined | boolean = undefined;
     }
 }

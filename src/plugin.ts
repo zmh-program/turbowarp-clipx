@@ -1,9 +1,14 @@
-import Scratch from "scratch-vm-extension";
-export class AbstractExtension {
+import { Scratch } from "./vm";
+export class Extension {
     constructor() {
+    }
+
+    getInfo() {
+
     }
 }
 
-export function register(extension: AbstractExtension) {
-    Scratch.extensions.register(<Scratch.Extension>extension);
+export function register(extension: Extension) {
+    /** @ts-ignore **/
+    Scratch.extensions.register(extension);
 }

@@ -1,4 +1,4 @@
-import { AbstractExtension, register } from "./plugin";
+import { Extension, register } from "./plugin";
 
 // @ts-ignore
-console.log(Scratch);
+console.log(Extension);
