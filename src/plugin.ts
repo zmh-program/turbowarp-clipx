@@ -1,5 +1,3 @@
-import type vm from "./types/vm";
-vm.register
 export class AbstractExtension {
     constructor() {
     }

@@ -1,1 +1,1 @@
-(()=>{"use strict";console.log(Scratch)})();
+(()=>{"use strict";class s{constructor(){}}console.log(Scratch,class extends s{})})();
