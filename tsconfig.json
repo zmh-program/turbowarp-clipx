@@ -1,0 +1,9 @@
+{
+    "include":["./src/**/*"] ,
+    "compilerOptions":{
+        "target" : "ES6",
+        "removeComments": true,
+        "noEmitOnError": true,
+        "strict": true,
+    }
+}

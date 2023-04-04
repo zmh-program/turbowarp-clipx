@@ -1,10 +1,11 @@
 const path = require("path");
 
 module.exports = {
+  mode: "production",
   entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: "extension.js"
+    filename: "extension.js",
   },
   module: {
     rules: [
@@ -15,6 +16,4 @@ module.exports = {
       }
     ]
   },
-  // 模式
-  mode: "development",
 }
