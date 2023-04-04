@@ -1,1 +1,1 @@
-(()=>{"use strict";var t,e;!function(t){let e,s,n,r;e||(e={}),s||(s={}),n||(n={}),r||(r={})}(t||(t={})),e=new class{constructor(){}getInfo(){}},t.extensions.register(e)})();
+(()=>{"use strict";var t;!function(t){let s,c,e,n;s||(s={}),c||(c={}),e||(e={}),n||(n={})}(t||(t={}));const s=top.Scratch||t;console.log(s, t);var c;c=new class{constructor(){}getInfo(){}},s.extensions.register(c)})();

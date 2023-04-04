@@ -1,4 +1,4 @@
-export namespace Scratch {
+namespace $Scratch {
     namespace ArgumentType {
         const ANGLE= 'angle';
         const BOOLEAN = 'Boolean';
@@ -242,3 +242,7 @@ export namespace Scratch {
         const unsandboxed: undefined | boolean = undefined;
     }
 }
+
+
+// @ts-ignore
+export const Scratch = top['Scratch'] || $Scratch;
