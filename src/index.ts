@@ -1,7 +1,7 @@
-import { Extension, register } from "./plugin";
+import Extension from "./plugin";
 import {Scratch} from "./vm";
 
-register(new Extension({
+new Extension({
     id: "ExampleExtension",
     name: "example",
     color1: "#0800ff",
@@ -15,4 +15,5 @@ register(new Extension({
             }
         },
     ]
-}))
+}).register();
+

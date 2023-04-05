@@ -18,5 +18,5 @@ export interface Block {
     text: string,
     bind: (...args: any) => Promise<any> | any,
     default?: Record<string, string>,    // defaultValue
-    menu?: any[],
+    menu?: Record<string, any[]>,
 }

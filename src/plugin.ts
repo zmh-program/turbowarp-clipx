@@ -2,7 +2,7 @@ import { Scratch } from "./vm";
 import { cleanObject } from "./utils";
 import Option from "./option";
 
-export class Extension {
+export default class Extension {
     protected option: Option;
     protected blocks: object[];
     protected menus: Record<string, { items: any[] }>;
@@ -14,12 +14,15 @@ export class Extension {
 
         for (const block of option.blocks) {   /** @ts-ignore */
             this[block.opcode] = block.bind;
-            if (block.menu) {
-                this.menus[block.opcode] = {
-                    items: block.menu,
-                };
-            }
+            if (block.menu) this.handleMenu(block.menu);
+        }
+    }
 
+    private handleMenu(menu: Record<string, any[]>) {
+        if ( Object.keys(Object(menu)).length ) {
+            for (const name in menu) {
+                this.menus[name] = { items: menu[name] };
+            }
         }
     }
 
@@ -38,9 +41,9 @@ export class Extension {
             menus: this.menus,
         })
     }
-}
 
-export function register(extension: Extension) {
-    /** @ts-ignore **/
-    Scratch.extensions.register(extension);
+    public register() {
+        /** @ts-ignore **/
+        Scratch.extensions.register(extension);
+    }
 }
