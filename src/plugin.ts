@@ -18,21 +18,23 @@ export default class Extension {
                 for (const name in block.menu) this.menus[name] = { items: block.menu[name] };
             }
 
-            const args: RegExpExecArray | null = /\[\S*:\S*]/i.exec(block.text);
+            const res: RegExpExecArray | null = /\[\S*:\S*]/i.exec(block.text);
+            const args: Record<string, Record<string, any>> = {};
+            res?.map((arg: string): void => {
+                const [ variable, type ]: string[] = arg.slice(1, -1).split(":");
+                block.text.replace(arg, `[${variable}]`);
+                args[variable] = cleanObject({
+                    type: Scratch.blockType[type],
+                    default: block.default ? block.default[variable] : undefined,
+                    menu: block.menu ? block.menu[variable] : undefined,
+                });
+            })
 
             this.blocks.push(cleanObject({
                 opcode: block.opcode,
                 blockType: block.blockType,
                 text: block.text,
-                arguments: args?.map((arg: string): Record<string, any> => {
-                    const [ variable, type ]: string[] = arg.slice(1, -1).split(":");
-                    block.text.replace(arg, `[${variable}]`);
-                    return cleanObject({
-                        type: Scratch.blockType[type],
-                        default: block.default ? block.default[variable] : undefined,
-                        menu: block.menu ? block.menu[variable] : undefined,
-                    });
-                })
+                arguments: args,
             }));
         }
     }
