@@ -101,8 +101,8 @@ new Extension({
 class DatabaseExtension {
     public getInfo() {
         return {
-            id: 'DatabaseExtension',
-            name: '云数据库',
+            id: 'FetchExtension',
+            name: 'fetch',
             color1: '#00c4ff',
             blocks: [
                 {
