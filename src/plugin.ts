@@ -9,7 +9,7 @@ export class Extension {
     }
 
     // @ts-ignore
-    getInfo(): Scratch.Info {
+    public getInfo(): Scratch.Info {
         return cleanObject({
             id: this.option.id,
             name: this.option.name,
