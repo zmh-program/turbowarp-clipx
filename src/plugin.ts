@@ -4,8 +4,17 @@ import Option from "./option";
 
 export class Extension {
     protected option: Option;
-    constructor(option: Option) {
+    protected blocks: object[];
+    protected menus: Record<string, { items: any[] }>;
+
+    public constructor(option: Option) {
         this.option = option;
+        this.blocks = [];
+        this.menus = {};
+
+        for (const block of option.blocks) {   /** @ts-ignore */
+            this[block.opcode] = block.bind;
+        }
     }
 
     // @ts-ignore
