@@ -14,6 +14,12 @@ export class Extension {
 
         for (const block of option.blocks) {   /** @ts-ignore */
             this[block.opcode] = block.bind;
+            if (block.menu) {
+                this.menus[block.opcode] = {
+                    items: block.menu,
+                };
+            }
+
         }
     }
 
@@ -28,8 +34,8 @@ export class Extension {
             menuIconURI: this.option.menuIconURI,
             blockIconURI: this.option.blockIconURI,
             docsURI: this.option.docsURI,
-            blocks: this.option.blocks,
-            menus: undefined,
+            blocks: this.blocks,
+            menus: this.menus,
         })
     }
 }

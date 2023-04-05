@@ -9,7 +9,7 @@ register(new Extension({
         {
             opcode: 'eg',
             blockType: Scratch.BlockType.BOOLEAN,
-            text: 'example block',
+            text: 'example block [arg:STRING]',
             bind: function({ arg }) {
 
             }
