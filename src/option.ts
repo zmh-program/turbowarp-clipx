@@ -6,6 +6,6 @@ export default interface Option {
     color3?: string;  // Should be a hex color code.
     menuIconURI?: string;    // Should be a data: URI
     blockIconURI?: string;   // Should be a data: URI
-    docsURI?: string;
+    docsURI?: string;        // Should be a data: URI
     blocks: object[];
 }

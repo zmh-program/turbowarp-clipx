@@ -1,4 +1,5 @@
 import { Scratch } from "./vm";
+import { cleanObject } from "./utils";
 import Option from "./option";
 
 export class Extension {
@@ -7,9 +8,10 @@ export class Extension {
         this.option = option;
     }
 
+    // @ts-ignore
     getInfo(): Scratch.Info {
-        return {
-            id : this.option.id,
+        return cleanObject({
+            id: this.option.id,
             name: this.option.name,
             color1: this.option.color1,
             color2: this.option.color2,
@@ -17,9 +19,9 @@ export class Extension {
             menuIconURI: this.option.menuIconURI,
             blockIconURI: this.option.blockIconURI,
             docsURI: this.option.docsURI,
-            blocks: (Block | string)[];
-            menus: Scratch.Record<string, Scratch.Menu | string[]>;
-        }
+            blocks: this.option.blocks,
+            menus: undefined,
+        })
     }
 }
 
