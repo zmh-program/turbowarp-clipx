@@ -4,3 +4,8 @@ export function cleanObject(target: Record<string, any>): object {
     }
     return target;
 }
+
+export function notification(content: string): void {
+    // @ts-ignore
+    top.mdui.snakebar(content);
+}

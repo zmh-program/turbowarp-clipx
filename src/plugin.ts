@@ -15,6 +15,25 @@ export default class Extension {
         for (const block of option.blocks) {   /** @ts-ignore */
             this[block.opcode] = block.bind;
             if (block.menu) this.handleMenu(block.menu);
+            this.blocks.push({
+                opcode: block.opcode,
+                blockType: block.blockType,
+                text: block.text,
+                arguments: {
+
+                }
+            });
+        }
+    }
+
+    static compileText(text: string) {
+        const args: RegExpExecArray | null = /\[\S*:\S*]/i.exec(text);
+        if (args && args.length) {
+            for (let arg of args) {
+                arg = arg.slice(1, -1);
+                const [ variable, type ]: string[] = arg.split(":");
+                
+            }
         }
     }
 
