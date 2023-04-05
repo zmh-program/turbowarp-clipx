@@ -1,6 +1,6 @@
 <div align="center">
 
-# turbowarp-ts-plugin
+# ⚡ turbowarp-ts-plugin
 
 #### 📦 Turbowarp dev extension plugin
 #### 📦 Turbowarp 开发环境扩展插件
