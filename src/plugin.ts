@@ -54,8 +54,7 @@ export default class Extension {
         })
     }
 
-    public register() {
-        // @ts-ignore
+    public register() {  // @ts-ignore
         Scratch.extensions.register(this);
     }
 }
