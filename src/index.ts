@@ -1,5 +1,4 @@
 import Extension from "./plugin";
-import {Scratch} from "./vm";
 
 new Extension({
     id: "ExampleExtension",
@@ -7,13 +6,15 @@ new Extension({
     color1: "#0800ff",
     blocks: [
         {
-            opcode: 'eg',
-            blockType: Scratch.BlockType.BOOLEAN,
-            text: 'example block [arg:STRING]',
+            opcode: 'eg',  /** @ts-ignore */
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'example block [arg:string]',
+            default: { arg : "a6" },
+            menu: { arg : ["a1", "a6", "a2"] },
             bind: function({ arg }) {
-
-            }
+                console.log(arg);
+                return arg + " success";
+            },
         },
     ]
 }).register();
-

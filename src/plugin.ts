@@ -1,4 +1,3 @@
-import { Scratch } from "./vm";
 import { cleanObject } from "./utils";
 import Option from "./option";
 
@@ -22,11 +21,11 @@ export default class Extension {
             const args: Record<string, Record<string, any>> = {};
             res?.map((arg: string): void => {
                 const [ variable, type ]: string[] = arg.slice(1, -1).split(":");
-                block.text.replace(arg, `[${variable}]`);
-                args[variable] = cleanObject({
-                    type: Scratch.blockType[type],
-                    default: block.default ? block.default[variable] : undefined,
-                    menu: block.menu ? block.menu[variable] : undefined,
+                block.text = block.text.replace(arg, `[${variable}]`);
+                args[variable] = cleanObject({  // @ts-ignore
+                    type: Scratch.BlockType[type],
+                    defaultValue: block.default ? block.default[variable] : undefined,
+                    menu: ( block.menu && block.menu[variable] ) ? variable : undefined,
                 });
             })
 
@@ -56,7 +55,8 @@ export default class Extension {
     }
 
     public register() {
+        console.log(this.getInfo());
         /** @ts-ignore **/
-        Scratch.extensions.register(extension);
+        Scratch.extensions.register(this);
     }
 }
