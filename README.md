@@ -20,11 +20,12 @@ turbowarp-ts-plugin是一个高效开发部署turbowarp扩展的插件, 提供:
     ```commandline
     pnpm install
     ```
-2. 入口示例 [**/src/index.ts**](/src/index.ts) (**javascript**同理)
+2. 入口编写扩展程序 **/src/index.ts** (**javascript**同理)
 3. 打包生成
     ```commandline
     webpack
     ```
+webpack打包生成的js文件位于**dist/extension.js**
 
 ## 接口
 
