@@ -16,7 +16,7 @@ turbowarp-ts-plugin是一个高效开发部署turbowarp扩展的插件, 提供:
 - 🎉 **Typescript 支持**
 
 ## 开发
-1. 初始化安装依赖 (**yarn**, **pnpm**同理)
+1. 初始化安装依赖 (**yarn** **pnpm**同理, 推荐**pnpm**)
     ```commandline
     npm install
     ```

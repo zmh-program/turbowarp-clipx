@@ -17,13 +17,13 @@ export default class Extension {
                 for (const name in block.menu) this.menus[name] = { items: block.menu[name] };
             }
 
-            const res: RegExpExecArray | null = /\[\S*:\S*]/i.exec(block.text);
+            const res: RegExpMatchArray | null = block.text.match(/\[\S*:\S*]/ig);
             const args: Record<string, Record<string, any>> = {};
             res?.map((arg: string): void => {
                 const [ variable, type ]: string[] = arg.slice(1, -1).split(":");
                 block.text = block.text.replace(arg, `[${variable}]`);
                 args[variable] = cleanObject({  // @ts-ignore
-                    type: Scratch.ArgumentType[type.toLowerCase()],
+                    type: Scratch.ArgumentType[type.toUpperCase()],
                     defaultValue: block.default ? block.default[variable] : undefined,
                     menu: ( block.menu && block.menu[variable] ) ? variable : undefined,
                 });
