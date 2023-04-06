@@ -16,9 +16,9 @@ turbowarp-ts-plugin是一个高效开发部署turbowarp扩展的插件, 提供:
 - 🎉 **Typescript 支持**
 
 ## 开发
-1. 初始化安装依赖 (**npm**, **yarn**同理)
+1. 初始化安装依赖 (**yarn**, **pnpm**同理)
     ```commandline
-    pnpm install
+    npm install
     ```
 2. 入口编写扩展程序 **/src/index.ts** (**javascript**同理)
 3. 打包生成
@@ -109,7 +109,7 @@ class DatabaseExtension {
                     opcode: 'fetchReq',
                     // @ts-ignore
                     blockType: Scratch.BlockType.REPORTER,
-                    text: 'fetch [uri:string] 方法[method:string]',
+                    text: 'fetch [uri] 方法[method]',
                     arguments: {
                         uri: {
                             // @ts-ignore
