@@ -57,7 +57,7 @@ webpack打包生成的js文件位于**dist/extension.js**
    - `disableMonitor` 是否积木强制删除复选框来创建监视器, 适用类型为**REPORTER** *(带返回值的积木)*, 如果为真, 则删除变量左处的复选框
 5. `docsURI`对应文档链接
 
-每太看懂? 下面展示一个示例
+没太看懂? 下面展示一个示例
 ```typescript
 new Extension({
     id: "ExampleExtension",
