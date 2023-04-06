@@ -1,8 +1,8 @@
-import Extension from "./plugin";
+import Extension from './plugin'
 
 new Extension({
-    id: "",
-    name: "",
-    color1: "#0800ff",
-    blocks: [],
-}).register();
+  id: '',
+  name: '',
+  color1: '#0800ff',
+  blocks: []
+}).register()
