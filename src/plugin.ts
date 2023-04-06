@@ -23,7 +23,7 @@ export default class Extension {
                 const [ variable, type ]: string[] = arg.slice(1, -1).split(":");
                 block.text = block.text.replace(arg, `[${variable}]`);
                 args[variable] = cleanObject({  // @ts-ignore
-                    type: Scratch.BlockType[type],
+                    type: Scratch.ArgumentType[type.toLowerCase()],
                     defaultValue: block.default ? block.default[variable] : undefined,
                     menu: ( block.menu && block.menu[variable] ) ? variable : undefined,
                 });
@@ -54,7 +54,9 @@ export default class Extension {
         })
     }
 
-    public register() {  // @ts-ignore
+    public register() {
+        console.log(this.getInfo())
+        // @ts-ignore
         Scratch.extensions.register(this);
     }
 }
