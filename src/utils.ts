@@ -7,5 +7,5 @@ export function cleanObject(target: Record<string, any>): object {
 
 export function notification(content: string): void {
     // @ts-ignore
-    top.mdui.snakebar(content);
+    top.mdui.snackbar(content);
 }

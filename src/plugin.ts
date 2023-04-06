@@ -1,4 +1,4 @@
-import { cleanObject } from "./utils";
+import { cleanObject, notification } from "./utils";
 import Option from "./option";
 
 export default class Extension {
@@ -34,6 +34,7 @@ export default class Extension {
                 blockType: block.blockType,
                 text: block.text,
                 arguments: args,
+                disableMonitor: block.disableMonitor,
             }));
         }
     }
@@ -55,8 +56,13 @@ export default class Extension {
     }
 
     public register() {
-        console.log(this.getInfo())
-        // @ts-ignore
-        Scratch.extensions.register(this);
+        try {
+            // @ts-ignore
+            Scratch.extensions.register(this);
+        } catch (e) {
+            notification(`Failed to load extension ${this.option.name}`);
+            console.error(e);
+            return;
+        }
     }
 }

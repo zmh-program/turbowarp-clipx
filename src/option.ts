@@ -14,9 +14,10 @@ export default interface Option {
 const $ = Scratch.BlockType;
 export interface Block {
     opcode: string,   /** @ts-ignore */
-    blockType: $.Boolean | $.Button | $.Command | $.CONDITIONAL | $.EVENT | $.HAT | $.LOOP | $.REPORTER,
+    blockType: $.BOOLEAN | $.BUTTON | $.COMMAND | $.CONDITIONAL | $.EVENT | $.HAT | $.LOOP | $.REPORTER,
     text: string,
     bind: (...args: any) => Promise<any> | any,
     default?: Record<string, string>,    // defaultValue
     menu?: Record<string, any[]>,
+    disableMonitor?: boolean,
 }
