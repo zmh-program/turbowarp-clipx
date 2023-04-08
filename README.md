@@ -63,6 +63,8 @@ webpack打包生成的js文件位于**dist/extension.js**
 
 没太看懂? 下面展示一个示例
 ```typescript
+import Extension from './plugin'
+
 new Extension({
     id: "ExampleExtension",
     name: "example",
