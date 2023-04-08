@@ -2,7 +2,7 @@
 
 # ⚡ turbowarp-ts-plugin
 
-#### 📦 Turbowarp dev extension plugin
+中文 | [English](/docs/en.md)
 #### 📦 Turbowarp 开发环境扩展插件
 
 </div>
@@ -22,9 +22,13 @@ turbowarp-ts-plugin是一个高效开发部署turbowarp扩展的插件, 提供:
     npm install
     ```
 2. 入口编写扩展程序 **/src/index.ts** (**javascript**同理)
-3. 打包生成
+3. eslint 修复
     ```commandline
-    webpack
+   npm run lint
+    ```
+4. 打包生成
+    ```commandline
+    npm run build
     ```
 webpack打包生成的js文件位于**dist/extension.js**
 
@@ -102,7 +106,7 @@ new Extension({
 > 原生 turbowarp
 
 ```typescript
-class DatabaseExtension {
+class Extension {
     public getInfo() {
         return {
             id: 'FetchExtension',
@@ -146,7 +150,7 @@ class DatabaseExtension {
     }
 }
 // @ts-ignore
-Scratch.extensions.register(new DatabaseExtension());
+Scratch.extensions.register(new Extension());
 ```
 > turbowarp-ts-plugin
 
