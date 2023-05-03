@@ -35,7 +35,7 @@ webpack打包生成的js文件位于**dist/extension.js**
 
 ## 接口
 
-**TurboWarp 扩展接口规范** 更多前往[40code扩展开发文档](https://40code.com/#page=post&id=198)
+**TurboWarp 扩展接口规范** 更多前往 [TurboWarp 中文文档](https://https://docs.turbowarp.cn/development)
 1. `id`是表示此扩展使用的唯一id的字符串应该只包含字符a-z和0-9 **(同一个扩展应该始终使用相同的ID，因为更改它会破坏现有项目)**
 2. `name`是一个字符串，告诉Scratch在侧栏中显示什么名称
 3. `color1`是一个hex格式的颜色，将设置为扩展的方块颜色
