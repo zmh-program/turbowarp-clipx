@@ -8,13 +8,12 @@
 </div>
 
 ## Introduction
-turbowarp-ts-plugin is a plugin for efficient development and deployment of turbowarp extensions, providing:
-- ✨ **better interface style**
-- 🔨 **Better development environment**
-- 📦 **Autocomplete**
-- 🌀 **webpack extreme size compression**
-- 🎃 **Registration exception detection**
-- 🎉 **Typescript support**
+- ✨ **Better interface style** Use classes and decorators to define extensions, more concise and elegant
+- 🔨 **Better development environment** Auto-completion of Turbowarp types
+- 📦 **webpack compression** Reduces the size of packaged JS files, improves loading speed and performance
+- 🎃 **Registration Exception Detection** Check for exceptions and intercept reports when registering extensions
+- 🎉 **Typescript support** provides better type checking and auto-completion
+- 🍎 **ESLint Fix** Automatically formats code to maintain a consistent style and specification
 
 ## Development
 1. Initial installation of dependencies (**yarn** **pnpm** same, **pnpm** recommended)
