@@ -15,6 +15,7 @@ turbowarp-ts-plugin是一个高效开发部署turbowarp扩展的插件, 提供:
 - 🎃 **注册异常检测** 注册扩展时检查异常情况并拦截汇报
 - 🎉 **Typescript 支持** 提供更好的类型检查和自动补全功能
 - 🍎 **ESLint 修复** 自动格式化代码, 保持统一的风格和规范
+- 🎉 **Action 自动打包** 使用action实现自动打包并加入release中, 方便在线获取
 
 ## 开发
 1. 初始化安装依赖 (**yarn** **pnpm**同理, 推荐**pnpm**)
@@ -178,4 +179,8 @@ new Extension({
 
 实际上, 出于文档大小考虑, 这里只节选了一个方块的扩展示例, 那如果是做一个[云数据库](https://gitee.com/LinwinSoft/open-data-api/blob/master/40code/extension.ts)扩展呢? 更大的代码量, 在接口和方法上反复穿行...
 
-所以结合了这一现状, 此插件借鉴Django路由的传参方式设计了更好的接口风格, 此插件的接口代码量仅占约原生的**30~45%**
+所以结合了这一现状, 此插件借鉴Django路由的传参方式设计了更好的接口风格, 此插件的接口代码量仅占约原生的**30~45%**.
+
+
+## Release 自动打包发布
+仓库密钥配置 `TOKEN` 为你的 [GitHub Token](https://github.com/settings/tokens/new), 当发布Release时, 会自动触发事件打包发送.

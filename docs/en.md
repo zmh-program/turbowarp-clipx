@@ -14,6 +14,7 @@
 - 🎃 **Registration Exception Detection** Check for exceptions and intercept reports when registering extensions
 - 🎉 **Typescript support** provides better type checking and auto-completion
 - 🍎 **ESLint Fix** Automatically formats code to maintain a consistent style and specification
+- 🎉 **Action Auto Build** Use action to implement auto-package and add to release, easy to get online
 
 ## Development
 1. Initial installation of dependencies (**yarn** **pnpm** same, **pnpm** recommended)
@@ -178,3 +179,7 @@ new Extension({
 In fact, for documentation size reasons, only a single cube extension example is excerpted here, but what about a [cloud database](https://gitee.com/LinwinSoft/open-data-api/blob/master/40code/extension.ts) extension? A much larger amount of code, iterating through interfaces and methods...
 
 So with that in mind, this plugin takes a page from Django's routing and passes it through a better interface style, which is only about **30~45%** of the native interface code.
+
+## Release Automated Build and Release
+
+Configure `TOKEN` as your [GitHub Token](https://github.com/settings/tokens/new) for the repository key, which will automatically trigger an event package to be sent when the Release is released
