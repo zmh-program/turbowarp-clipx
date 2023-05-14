@@ -16,6 +16,10 @@ export interface Block {
   opcode: string /** @ts-expect-error */
   blockType: $.BOOLEAN | $.BUTTON | $.COMMAND | $.CONDITIONAL | $.EVENT | $.HAT | $.LOOP | $.REPORTER
   text: string
+  cache?: {
+    enable?: boolean
+    expiration?: number
+  }
   bind: (...args: any) => Promise<any> | any
   default?: Record<string, string> // defaultValue
   menu?: Record<string, any[]>

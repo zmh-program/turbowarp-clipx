@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ turbowarp-ts-plugin
+# ⚡ Turbowarp ClipX
 
 [中文](/README.md) | English
 #### 📦 Turbowarp Development environment extension plugin
@@ -154,7 +154,7 @@ class Extension {
 // @ts-ignore
 Scratch.extensions.register(new Extension());
 ```
-> turbowarp-ts-plugin
+> turbowarp-clipx
 
 ```typescript
 import Extension from "./plugin";

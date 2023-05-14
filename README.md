@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ turbowarp-ts-plugin
+# ⚡ Turbowarp ClipX
 
 中文 | [English](/docs/en.md)
 #### 📦 Turbowarp 开发环境扩展插件
@@ -8,7 +8,7 @@
 </div>
 
 ## 简介
-turbowarp-ts-plugin是一个高效开发部署turbowarp扩展的插件, 提供:
+Turbowarp ClipX 是一个高效开发部署turbowarp扩展的插件, 提供:
 - ✨ **更好的接口风格** 使用类和装饰器来定义扩展，更简洁和优雅
 - 🔨 **更好的开发环境** 自动补全Turbowarp类型
 - 📦 **webpack 压缩** 缩小打包JS文件体积, 提高加载速度和性能 
@@ -155,7 +155,7 @@ class Extension {
 // @ts-ignore
 Scratch.extensions.register(new Extension());
 ```
-> turbowarp-ts-plugin
+> turbowarp-clipx
 
 ```typescript
 import Extension from "./plugin";
