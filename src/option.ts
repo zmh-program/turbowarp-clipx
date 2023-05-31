@@ -9,6 +9,8 @@ export default interface Option {
   blockIconURI?: string // Should be a data: URI
   docsURI?: string // Should be a data: URI
   blocks: Block[]
+  debug?: boolean  // Defaults to false if not specified.
+  secs?: number // Timing of cache cleaning. Defaults to 60(secs) if not specified.
 }
 
 const $ = Scratch.BlockType
@@ -17,8 +19,8 @@ export interface Block {
   blockType: $.BOOLEAN | $.BUTTON | $.COMMAND | $.CONDITIONAL | $.EVENT | $.HAT | $.LOOP | $.REPORTER
   text: string
   cache?: {
-    enable?: boolean
-    expiration?: number
+    enable?: boolean // If enable caching. Defaults to false if not specified.
+    expiration?: number // Cache expiration time (secs). Defaults to 0 (never expire) if not specified.
   }
   bind: (...args: any) => Promise<any> | any
   default?: Record<string, string> // defaultValue

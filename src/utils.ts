@@ -14,7 +14,7 @@ export function notification(content: string): void {
   top.mdui.snackbar(content)
 }
 
-class Cache {
+export class Cache {
   /**
    * Cache Manager.
    *
@@ -74,7 +74,7 @@ class Cache {
 
   public is_available(tag: string, key: string): boolean {
     if (!this.exist(tag, key)) return false;
-    const { data, expiration} = this.caches[tag];
+    const { data, expiration } = this.caches[tag];
     return !Cache.is_expired(data[key].stamp, expiration);
   }
 
