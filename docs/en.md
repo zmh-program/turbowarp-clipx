@@ -47,9 +47,10 @@ entrypoint **/src/index.ts** (**javascript** same)
     - `opcode` is the internal name of the block, which also corresponds to the method that will be called by default when the block is run *_(optionally `func` overrides the called method name, deprecated)_
         - **opcode should not be changed**
     - `blockType` defines the type of the block
-        - `Scratch.BlockType.REPORTER` Round block with return value
-        - `Scratch.BlockType.BOOLEAN` A hexagonal block that returns a boolean value
-        - `Scratch.BlockType.COMMAND` A key block
+        - `reporter` A round block that reports a string or number
+        - `Boolean`  A block with pointy edges that reports a boolean (true or false)
+        - `command` A block that doesn't report a value
+        - `hat` A block that starts in response to events
     - ✨ `bind` accepts a **function**, allowing asynchronous execution to return a Promise
     - ✨ `cache` Cache
         - `enable` whether to turn on caching

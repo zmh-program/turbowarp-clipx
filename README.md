@@ -48,9 +48,10 @@ Turbowarp ClipX 是一个高效开发部署turbowarp扩展的插件, 提供:
    - `opcode`是积木的内部名称，也对应于积木运行时默认将调用的方法*_(可选`func`覆盖调用的方法名, 已弃用)_
      - **opcode不应该被更改**
    - `blockType` 定义积木的类型
-       - `Scratch.BlockType.REPORTER` 圆形的带返回值的积木
-       - `Scratch.BlockType.BOOLEAN` 六边形的返回布尔值的积木
-       - `Scratch.BlockType.COMMAND` 一个键积木
+       - `reporter` 圆形的带返回值的积木
+       - `Boolean` 六边形的返回布尔值的积木
+       - `command` 一个键积木
+       - `hat` 响应事件积木
    - ✨ `bind` 接受一个**function**, 允许异步执行返回Promise
    - ✨ `cache` 缓存
      - `enable` 是否开启缓存
