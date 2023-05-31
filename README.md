@@ -10,6 +10,7 @@
 ## 简介
 Turbowarp ClipX 是一个高效开发部署turbowarp扩展的插件, 提供:
 - ✨ **更好的接口风格** 使用类和装饰器来定义扩展，更简洁和优雅
+- ⚡  **便捷的缓存功能** 提供缓存功能, 优化性能 (可在接口中自定义)
 - 🔨 **更好的开发环境** 自动补全Turbowarp类型
 - 📦 **webpack 压缩** 缩小打包JS文件体积, 提高加载速度和性能 
 - 🎃 **注册异常检测** 注册扩展时检查异常情况并拦截汇报
@@ -18,20 +19,24 @@ Turbowarp ClipX 是一个高效开发部署turbowarp扩展的插件, 提供:
 - 🎉 **Action 自动打包** 使用action实现自动打包并加入release中, 方便在线获取
 
 ## 开发
+入口 **/src/index.ts** (**javascript**同理)
 1. 初始化安装依赖 (**yarn** **pnpm**同理, 推荐**pnpm**)
-    ```commandline
+    ```shell
     npm install
     ```
-2. 入口编写扩展程序 **/src/index.ts** (**javascript**同理)
+2. dev
+    ```shell
+    npm run dev
+    ```
 3. eslint 修复
-    ```commandline
+    ```shell
    npm run lint
     ```
-4. 打包生成
-    ```commandline
+4. 打包
+    > webpack 打包生成的js文件位于 **dist/extension.js**
+    ```shell
     npm run build
     ```
-webpack打包生成的js文件位于**dist/extension.js**
 
 ## 接口
 
@@ -46,8 +51,11 @@ webpack打包生成的js文件位于**dist/extension.js**
        - `Scratch.BlockType.REPORTER` 圆形的带返回值的积木
        - `Scratch.BlockType.BOOLEAN` 六边形的返回布尔值的积木
        - `Scratch.BlockType.COMMAND` 一个键积木
-   - `bind` 接受一个**function**, 允许异步执行返回Promise
-   - `text` 是一个字符串，用于定义积木在编辑器中的名称 格式为 **[参数:类型]**
+   - ✨ `bind` 接受一个**function**, 允许异步执行返回Promise
+   - ✨ `cache` 缓存
+     - `enable` 是否开启缓存
+     - `expiration` 缓存时间, 单位秒, 如果为**0**则永不过期
+   - ✨ `text` 是一个字符串，用于定义积木在编辑器中的名称 格式为 **[参数:类型]**
      - `参数` 定义积木接受的参数的对象, 可能将在`default`和`menu`字段中引用
      - `类型`定义要创建的输入形状 *(不区分大小写)*
          - `STRING` 字符串类型
@@ -60,7 +68,9 @@ webpack打包生成的js文件位于**dist/extension.js**
    - `default` 是参数的初始值, 接受一个字典, 键对应`参数`, 值对应参数的`默认值`
    - `menu` 如果有参数需选择多个给定的值, 则可加入至此参数, 接受一个字典, 键对应`参数`, 值对应多个给定的值的列表类型, 将生成下拉菜单
    - `disableMonitor` 是否积木强制删除复选框来创建监视器, 适用类型为**REPORTER** *(带返回值的积木)*, 如果为真, 则删除变量左处的复选框
-5. `docsURI`对应文档链接
+5. `docsURI` 对应文档链接
+6. ✨ `debug` 是否开启控制台调试 (默认关闭, 即此插件本身不会有任何输出)
+7. ✨ `uptime` 定期缓存清理时间间隔, 单位秒, 默认为**60**秒
 
 没太看懂? 下面展示一个示例
 ```typescript

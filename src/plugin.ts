@@ -9,7 +9,7 @@ export default class Extension {
 
   public constructor(option: Option) {
     this.option = option;
-    this.cache = new Cache(option.secs || 60, option.debug || false);
+    this.cache = new Cache(option.uptime, option.debug);
     this.blocks = [];
     this.menus = {};
 

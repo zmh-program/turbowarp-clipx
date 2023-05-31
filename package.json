@@ -4,6 +4,7 @@
   "description": "📦 TurboWarp development-env extension plugin",
   "main": "index.ts",
   "scripts": {
+    "dev": "webpack --watch",
     "build": "webpack",
     "lint": "eslint src/** --fix"
   },

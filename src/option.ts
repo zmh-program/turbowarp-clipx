@@ -10,7 +10,7 @@ export default interface Option {
   docsURI?: string // Should be a data: URI
   blocks: Block[]
   debug?: boolean  // Defaults to false if not specified.
-  secs?: number // Timing of cache cleaning. Defaults to 60(secs) if not specified.
+  uptime?: number // Timing of cache cleaning. Defaults to 60(secs) if not specified.
 }
 
 const $ = Scratch.BlockType
