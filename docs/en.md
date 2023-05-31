@@ -81,8 +81,8 @@ new Extension({
     color1: "#0800ff",
     blocks: [
         {
-            opcode: 'output',  /** @ts-ignore */
-            blockType: Scratch.BlockType.COMMAND,
+            opcode: 'output',
+            blockType: 'command',
             text: 'command [block:string] [type:string]',
             default: { block : "param2", type: "type" },
             menu: { block : [ "param1", "param2" ] },
@@ -90,8 +90,8 @@ new Extension({
                 return `content ${block} type ${type}`;
             },
         }, {
-            opcode: 'list',  /** @ts-ignore */
-            blockType: Scratch.BlockType.REPORTER,
+            opcode: 'list',
+            blockType: 'reporter',
             text: 'Get an empty array',
             bind: () => [],
             disableMonitor: true,
@@ -164,6 +164,7 @@ class Extension {
 // @ts-ignore
 Scratch.extensions.register(new Extension());
 ```
+
 > turbowarp-clipx
 
 ```typescript
@@ -176,7 +177,7 @@ new Extension({
     blocks: [
         {
             opcode: 'fetch',
-            blockType: Scratch.BlockType.REPORTER,
+            blockType: 'reporter',
             text: 'fetch [uri:string] method[method:string]',
             default: { uri: "https://example.com/" , method: "GET" },
             menu: { method: ["GET", "POST", "PUT", "DELETE" ] },

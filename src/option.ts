@@ -1,4 +1,3 @@
-import { Scratch } from './vm'
 export default interface Option {
   id: string
   name?: string // Defaults to extension ID if not specified.
@@ -13,10 +12,9 @@ export default interface Option {
   uptime?: number // Timing of cache cleaning. Defaults to 60(secs) if not specified.
 }
 
-const $ = Scratch.BlockType
 export interface Block {
-  opcode: string /** @ts-expect-error */
-  blockType: $.BOOLEAN | $.BUTTON | $.COMMAND | $.CONDITIONAL | $.EVENT | $.HAT | $.LOOP | $.REPORTER
+  opcode: string
+  blockType: "Boolean" | "button" | "command" | "conditional" | "event" | "hat" | "loop" | "reporter"
   text: string
   cache?: {
     enable?: boolean // If enable caching. Defaults to false if not specified.

@@ -82,8 +82,8 @@ new Extension({
     color1: "#0800ff",
     blocks: [
         {
-            opcode: 'output',  /** @ts-ignore */
-            blockType: Scratch.BlockType.COMMAND,
+            opcode: 'output',
+            blockType: 'command',
             text: '命令 [block:string] [type:string]',
             default: { block : "参数2", type: "类型" },
             menu: { block : [ "参数1", "参数2" ] },
@@ -91,8 +91,8 @@ new Extension({
                 return `内容 ${block} 类型 ${type}`;
             },
         }, {
-            opcode: 'list',  /** @ts-ignore */
-            blockType: Scratch.BlockType.REPORTER,
+            opcode: 'list',
+            blockType: 'reporter',
             text: '获取一个空列表',
             bind: () => [],
             disableMonitor: true,
@@ -165,6 +165,7 @@ class Extension {
 // @ts-ignore
 Scratch.extensions.register(new Extension());
 ```
+
 > turbowarp-clipx
 
 ```typescript
@@ -177,7 +178,7 @@ new Extension({
     blocks: [
         {
             opcode: 'fetch',
-            blockType: Scratch.BlockType.REPORTER,
+            blockType: 'reporter',
             text: 'fetch [uri:string] 方法[method:string]',
             default: { uri: "https://example.com/" , method: "GET" },
             menu: { method: ["GET", "POST", "PUT", "DELETE" ] },
