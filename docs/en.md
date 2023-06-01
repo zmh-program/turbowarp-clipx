@@ -3,7 +3,7 @@
 # ⚡ Turbowarp ClipX
 
 [中文](/README.md) | English
-#### 📦 Turbowarp Development environment extension plugin
+#### 📦 Turbowarp efficient development extension plugin
 
 </div>
 

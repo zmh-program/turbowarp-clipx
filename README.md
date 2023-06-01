@@ -3,7 +3,7 @@
 # ⚡ Turbowarp ClipX
 
 中文 | [English](/docs/en.md)
-#### 📦 Turbowarp 开发环境扩展插件
+#### 📦 Turbowarp 高效开发扩展插件
 
 </div>
 
