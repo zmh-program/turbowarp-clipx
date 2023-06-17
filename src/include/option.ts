@@ -10,6 +10,7 @@ export default interface Option {
   blocks: Block[]
   debug?: boolean  // Defaults to false if not specified.
   uptime?: number // Timing of cache cleaning. Defaults to 60(secs) if not specified.
+  i18n?: I18nConfig // Defaults to undefined if not specified.
 }
 
 export interface Block {
@@ -24,4 +25,9 @@ export interface Block {
   default?: Record<string, string> // defaultValue
   menu?: Record<string, any[]>
   disableMonitor?: boolean
+}
+
+export interface I18nConfig {
+  source?: string  // Defaults to 'en' if not specified.
+  accept?: string[] // Defaults to ['zh', 'en'] if not specified.
 }

@@ -1,6 +1,10 @@
-import { clean, translate } from './utils'
+// @ts-ignore
+import source from '../i18n/source.json'
+import { clean } from './utils'
 import Cache from './cache'
 import type Option from './option'
+import { commonjs } from "./env";
+import { process } from "../i18n/generate";
 
 export default class Extension {
   protected option: Option;
@@ -14,6 +18,10 @@ export default class Extension {
     this.blocks = [];
     this.menus = {};
 
+    if (commonjs) {
+      process(option.blocks, option.i18n || {}).then(() => 0);
+      return;
+    }
     for (const block of option.blocks) {
       const cache = block.cache;
       if (cache?.enable) {
@@ -64,6 +72,7 @@ export default class Extension {
   }
 
   public register() {
+    if (commonjs) return;
     try {
       // @ts-expect-error
       Scratch.extensions.register(this);

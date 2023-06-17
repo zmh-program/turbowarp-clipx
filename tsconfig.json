@@ -2,6 +2,7 @@
     "include": [
         "./src/**/*"
     ],
+    "esModuleInterop": true,
     "compilerOptions": {
         "target": "ES6",
         "allowSyntheticDefaultImports": true,

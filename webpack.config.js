@@ -4,7 +4,7 @@ module.exports = {
   mode: "production",
   entry: "./src/index.ts",
   resolve: {
-    extensions : [ ".js", ".ts" ],
+    extensions : [ ".js", ".ts", ".json" ],
   },
   plugins: [],
   output: {
