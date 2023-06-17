@@ -17,6 +17,7 @@ Turbowarp ClipX 是一个高效开发部署turbowarp扩展的插件, 提供:
 - 🎉 **Typescript 支持** 提供更好的类型检查和自动补全功能
 - 🍎 **ESLint 修复** 自动格式化代码, 保持统一的风格和规范
 - 🎉 **Action 自动打包** 使用action实现自动打包并加入release中, 方便在线获取
+- ⚡ **CLI 自动翻译** 通过命令行无需配置参数即可进行i18n翻译
 
 ## 开发
 入口 **/src/index.ts** (**javascript**同理)
@@ -32,7 +33,11 @@ Turbowarp ClipX 是一个高效开发部署turbowarp扩展的插件, 提供:
     ```shell
    npm run lint
     ```
-4. 打包
+4. 翻译
+    ```shell
+    npm run i18n
+    ```
+5. 打包
     > webpack 打包生成的js文件位于 **dist/extension.js**
     ```shell
     npm run build
@@ -72,10 +77,13 @@ Turbowarp ClipX 是一个高效开发部署turbowarp扩展的插件, 提供:
 5. `docsURI` 对应文档链接
 6. ✨ `debug` 是否开启控制台调试 (默认关闭, 即此插件本身不会有任何输出)
 7. ✨ `uptime` 定期缓存清理时间间隔, 单位秒, 默认为**60**秒
+8. ✨ `i18n` i18n 翻译
+   - `source` 源语言，默认为简体中文
+   - `accept` 目标语言列表，默认为英语和简体中文
 
 没太看懂? 下面展示一个示例
 ```typescript
-import Extension from './plugin'
+import Extension from './include/plugin'
 
 new Extension({
     id: "ExampleExtension",

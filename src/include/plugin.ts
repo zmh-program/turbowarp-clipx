@@ -1,6 +1,6 @@
 // @ts-ignore
 import source from '../i18n/source.json'
-import {clean, translate} from './utils'
+import { clean, translate } from './utils'
 import Cache from './cache'
 import type { Option, Block } from './option'
 import { commonjs } from "./env"
