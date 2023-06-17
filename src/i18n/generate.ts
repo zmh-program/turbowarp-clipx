@@ -32,9 +32,9 @@ async function test(): Promise<void> {
     throw new Error('Translation test failed.');
   console.debug(`Translation test \u001b[32mpassed\u001b[0m.`);
 }
-export async function process(blocks: Block[], option: I18nConfig): Promise<void> {
+export async function process_i18n(blocks: Block[], option: I18nConfig): Promise<void> {
   await test();
-  const len: number = blocks.length;
+  const len: number = blocks.length, time = Date.now();
   const from = option.source || 'en',
     to = option.accept ||  ['en', 'zh'];
   const result: Record<string, Record<string, string>> = {};
@@ -55,5 +55,6 @@ export async function process(blocks: Block[], option: I18nConfig): Promise<void
     './src/i18n/source.json',
     JSON.stringify(result, null, 2),
   );
-  console.info(`Translation compiled \u001b[32msuccessfully\u001b[0m in 2221 ms.`);
+  console.info(`\nTranslation compiled \u001b[32msuccessfully\u001b[0m in \u001b[35m${Date.now() - time}\u001b[0m ms.`);
+  process.exit(0);
 }

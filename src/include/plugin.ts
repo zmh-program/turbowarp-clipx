@@ -3,7 +3,7 @@ import source from '../i18n/source.json'
 import { clean } from './utils'
 import Cache from './cache'
 import type Option from './option'
-import { commonjs } from "./env";
+import { commonjs } from "./env"
 
 export default class Extension {
   protected option: Option;
@@ -20,7 +20,7 @@ export default class Extension {
     if (commonjs) {
       // @ts-ignore
       import('../i18n/generate').then((module) => {
-        module.process(option.blocks, option.i18n || {}).then(() => 0);
+        module.process_i18n(option.blocks, option.i18n || {}).then(() => 0);
       });
       return;
     }
