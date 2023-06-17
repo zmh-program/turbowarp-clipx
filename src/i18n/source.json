@@ -1,12 +1,3 @@
 {
-  "en": {
-    "title": "hi",
-    "test": "put [test] message into [temp] temperature",
-    "test2": "put [test] message into [temp] temperature"
-  },
-  "zh": {
-    "title": "嗨",
-    "test": "将[test]封邮件置于[temp]温度下",
-    "test2": "将[test]封邮件置于[temp]温度下"
-  }
+
 }
