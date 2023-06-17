@@ -1,4 +1,4 @@
-import Extension from './plugin'
+import Extension from './include/plugin'
 
 new Extension({
   id: '',

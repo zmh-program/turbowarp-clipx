@@ -1,4 +1,5 @@
-import { Cache, cleanObject, notification } from './utils'
+import { clean, translate } from './utils'
+import Cache from './cache'
 import type Option from './option'
 
 export default class Extension {
@@ -29,14 +30,14 @@ export default class Extension {
       res?.map((arg: string): void => {
         const [variable, type]: string[] = arg.slice(1, -1).split(':');
         block.text = block.text.replace(arg, `[${variable}]`);
-        args[variable] = cleanObject({ // @ts-expect-error
+        args[variable] = clean({ // @ts-expect-error
           type: Scratch.ArgumentType[type.toUpperCase()],
           defaultValue: (block.default != null) ? block.default[variable] : undefined,
           menu: ((block.menu != null) && block.menu[variable]) ? variable : undefined,
         });
       });
 
-      this.blocks.push(cleanObject({
+      this.blocks.push(clean({
         opcode: block.opcode,
         blockType: block.blockType,
         text: block.text,
@@ -48,7 +49,7 @@ export default class Extension {
 
   // @ts-expect-error
   public getInfo(): Scratch.Info {
-    return cleanObject({
+    return clean({
       id: this.option.id,
       name: this.option.name,
       color1: this.option.color1,
@@ -67,7 +68,7 @@ export default class Extension {
       // @ts-expect-error
       Scratch.extensions.register(this);
     } catch (e) {
-      notification(`Failed to load extension ${this.option.name}`);
+      console.info(`Failed to load extension ${this.option.name}`);
       if (this.option.debug) console.error(e);
     }
   }

@@ -6,6 +6,7 @@ module.exports = {
   resolve: {
     extensions : [ ".js", ".ts" ],
   },
+  plugins: [],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: "extension.js",
