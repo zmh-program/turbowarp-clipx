@@ -42,11 +42,7 @@ export default class Extension {
       const args: Record<string, Record<string, any>> = {};
       res?.map((arg: string): void => {
         const [variable, type]: string[] = arg.slice(1, -1).split(':');
-        // @ts-ignore
-        block.text = Scratch.translate({
-          id: block.opcode,
-          default: block.text.replace(arg, `[${variable}]`),
-        });
+        block.text = block.text.replace(arg, `[${variable}]`);
         args[variable] = clean({ // @ts-expect-error
           type: Scratch.ArgumentType[type.toUpperCase()],
           defaultValue: (block.default != null) ? block.default[variable] : undefined,
@@ -56,8 +52,11 @@ export default class Extension {
 
       this.blocks.push(clean({
         opcode: block.opcode,
-        blockType: block.blockType,
-        text: block.text,
+        blockType: block.blockType,  // @ts-ignore
+        text: Scratch.translate({
+          id: block.opcode,
+          default: block.text,
+        }),
         arguments: args,
         disableMonitor: block.disableMonitor,
       }));

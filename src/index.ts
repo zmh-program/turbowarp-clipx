@@ -1,8 +1,8 @@
 import Extension from './include/plugin'
 
 new Extension({
-  id: '',
-  name: '',
+  id: 'hi',
+  name: 'hi',
   color1: '#0800ff',
   blocks: [
     {
