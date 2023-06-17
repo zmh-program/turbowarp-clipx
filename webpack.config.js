@@ -5,6 +5,7 @@ module.exports = {
   entry: "./src/index.ts",
   resolve: {
     extensions : [ ".js", ".ts", ".json" ],
+    alias: { fs: false },
   },
   plugins: [],
   output: {

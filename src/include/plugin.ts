@@ -4,7 +4,6 @@ import { clean } from './utils'
 import Cache from './cache'
 import type Option from './option'
 import { commonjs } from "./env";
-import { process } from "../i18n/generate";
 
 export default class Extension {
   protected option: Option;
@@ -19,7 +18,10 @@ export default class Extension {
     this.menus = {};
 
     if (commonjs) {
-      process(option.blocks, option.i18n || {}).then(() => 0);
+      // @ts-ignore
+      import('../i18n/generate').then((module) => {
+        module.process(option.blocks, option.i18n || {}).then(() => 0);
+      });
       return;
     }
     for (const block of option.blocks) {
