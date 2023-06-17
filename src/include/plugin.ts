@@ -24,6 +24,9 @@ export default class Extension {
       });
       return;
     }
+
+    // @ts-ignore
+    Scratch.translate.setup(source);
     for (const block of option.blocks) {
       const cache = block.cache;
       if (cache?.enable) {
@@ -39,7 +42,11 @@ export default class Extension {
       const args: Record<string, Record<string, any>> = {};
       res?.map((arg: string): void => {
         const [variable, type]: string[] = arg.slice(1, -1).split(':');
-        block.text = block.text.replace(arg, `[${variable}]`);
+        // @ts-ignore
+        block.text = Scratch.translate({
+          id: block.opcode,
+          default: block.text.replace(arg, `[${variable}]`),
+        });
         args[variable] = clean({ // @ts-expect-error
           type: Scratch.ArgumentType[type.toUpperCase()],
           defaultValue: (block.default != null) ? block.default[variable] : undefined,

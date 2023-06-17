@@ -1,10 +1,10 @@
 {
   "en": {
-    "test": "put [test:string] message into [temp:string] temperature",
-    "test2": "put [test:string] message into [temp:string] temperature"
+    "test": "put [test] message into [temp] temperature",
+    "test2": "put [test] message into [temp] temperature"
   },
   "zh": {
-    "test": "将[test:string]封邮件置于[temp:string]温度下",
-    "test2": "将[test:string]封邮件置于[temp:string]温度下"
+    "test": "将[test]封邮件置于[temp]温度下",
+    "test2": "将[test]封邮件置于[temp]温度下"
   }
 }

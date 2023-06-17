@@ -6,13 +6,13 @@ export const transformer: Record<string, string> = {
 }
 
 async function _translate(text: string, from: string, to: string): Promise<string> {
+  if (from === to) return text;
   const resp = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${from}|${to}`);
   const data = await resp.json();
   return data.responseData.translatedText;
 }
 
 export async function translate(text: string, from: string, to: string): Promise<string> {
-  if (from === to) return text;
   const keys: string[] = text.match(/\[\S*:\S*]/ig) || [];
   for (let i = 0; i < keys.length; i++)
     text = text.replace(keys[i], `[${i}]`);
@@ -20,8 +20,10 @@ export async function translate(text: string, from: string, to: string): Promise
   let result = await _translate(text, from, to);
   if (result === undefined) throw new Error('Translation failed.');
   let values: string[] = text.match(/\d+/ig) || [];
-  for (let i = 0; i < values.length; i++)
-    result = result.replace(`[${i}]`, keys[parseInt(values[i])]);
+  for (let i = 0; i < values.length; i++) {
+    const key: string = keys[parseInt(values[i])].slice(1, -1).split(':')[0];
+    result = result.replace(`[${i}]`, `[${key}]`);
+  }
   return result;
 }
 
