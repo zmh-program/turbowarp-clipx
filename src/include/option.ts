@@ -1,4 +1,4 @@
-export default interface Option {
+export interface Option {
   id: string
   name?: string // Defaults to extension ID if not specified.
   color1?: string // Should be a hex color code.

@@ -6,7 +6,7 @@ export const transformer: Record<string, string> = {
 }
 
 async function _translate(text: string, from: string, to: string): Promise<string> {
-  if (from === to) return text;
+  if (from === to || text.length === 0) return text;
   const resp = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${from}|${to}`);
   const data = await resp.json();
   return data.responseData.translatedText;
@@ -34,20 +34,20 @@ async function test(): Promise<void> {
     throw new Error('Translation test failed.');
   console.debug(`Translation test \u001b[32mpassed\u001b[0m.`);
 }
-export async function process_i18n(blocks: Block[], option: I18nConfig): Promise<void> {
+export async function process_i18n(blocks: Record<string, string>, option: I18nConfig): Promise<void> {
   await test();
-  const len: number = blocks.length, time = Date.now();
+  const len: number = Object.keys(blocks).length, time = Date.now();
   const from = option.source || 'en',
     to = option.accept ||  ['en', 'zh'];
   const result: Record<string, Record<string, string>> = {};
   for (const lang of to) result[lang] = {};
 
   console.info(`Detected \u001b[34m${len}\u001b[0m blocks.`);
-  for (const block of blocks) {
-    console.debug(`> Processing block \u001b[36m${block.opcode}\u001b[0m.`);
+  for (const opcode in blocks) {
+    console.debug(`> Processing block \u001b[36m${opcode}\u001b[0m.`);
     for (const lang of to) {
-      const text: string = await translate(block.text, transformer[from], transformer[lang]);
-      result[lang][block.opcode] = text;
+      const text: string = await translate(blocks[opcode].trim(), transformer[from], transformer[lang]);
+      result[lang][opcode] = text;
       console.debug(`  \u001b[32m${lang}\u001b[0m: ${text}`);
     }
   }
