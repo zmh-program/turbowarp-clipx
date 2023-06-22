@@ -5,10 +5,16 @@
     "esModuleInterop": true,
     "compilerOptions": {
         "target": "ES6",
+        "module": "ES2020",
         "allowSyntheticDefaultImports": true,
+        "moduleResolution": "Node16",
+        "resolveJsonModule": true,
         "paths": {
             "scratch-vm": [
                 "./node_modules/@turbowarp/types/index.d.ts"
+            ],
+            "scratch-vm-extension": [
+                "./node_modules/@turbowarp/types/types/scratch-vm-extension.d.ts"
             ],
             "scratch-render": [
                 "./node_modules/@turbowarp/types/index.d.ts"

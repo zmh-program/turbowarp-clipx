@@ -10,7 +10,6 @@ export function truncate(str: string, len: number = 10): string {
 }
 
 export function translate(id: string, default_?: string): string {
-  // @ts-ignore
   return Scratch.translate({
     id: id,
     default: default_ || "",

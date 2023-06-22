@@ -1,4 +1,4 @@
-import { Block, I18nConfig } from "../include/option";
+import { I18nConfig } from "../include/option";
 
 export const transformer: Record<string, string> = {
     "en": "en",
