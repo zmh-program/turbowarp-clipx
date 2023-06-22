@@ -1,13 +1,13 @@
 {
     "include": [
-        "./src/**/*"
+        "./src/**/*.ts"
     ],
     "esModuleInterop": true,
     "compilerOptions": {
         "target": "ES6",
-        "module": "ES2020",
+        "module": "CommonJS",
         "allowSyntheticDefaultImports": true,
-        "moduleResolution": "Node16",
+        "moduleResolution": "Node",
         "resolveJsonModule": true,
         "paths": {
             "scratch-vm": [

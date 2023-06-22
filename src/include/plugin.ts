@@ -1,3 +1,5 @@
+/// <reference path="../types.d.ts" />
+
 import source from '../i18n/source.json'
 import { clean, translate } from './utils'
 import Cache from './cache'
@@ -27,7 +29,7 @@ export default class Extension {
     this.menus = {};
 
     if (commonjs) {
-      import('../i18n/generate.js').then((module) => {
+      import('../i18n/generate').then((module) => {
         const blocks: Record<string, string> = { title: option.name || "" };
         for (const block of option.blocks) blocks[block.opcode] = block.text;
         module.process_i18n(blocks, option.i18n || {}).then(() => 0);
