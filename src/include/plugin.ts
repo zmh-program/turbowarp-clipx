@@ -1,14 +1,27 @@
-// @ts-ignore
+/// <reference path="../types.d.ts" />
+
 import source from '../i18n/source.json'
 import { clean, translate } from './utils'
 import Cache from './cache'
 import type { Option, Block } from './option'
 import { commonjs } from "./env"
 
+type ScratchBlockHandler = (args: { [key: string]: any }) => any;
+type Menus = Record<string, { items: any[] }>;
+type ExtensionSpecAttrs = Option | Cache | Menus;
+type ExtConstructor = (option: Option) => void;
+type ExtGetBlock = (block: Block) => Scratch.Block;
+type ExtGetInfo = () => Scratch.Info;
+type ExtRegister = () => void;
+type ExtensionSpecMethods = ExtConstructor | ExtGetBlock | ExtGetInfo | ExtRegister;
+type ExtensionSpecs = ExtensionSpecAttrs | ExtensionSpecMethods;
+
 export default class Extension {
   protected option: Option;
-  protected menus: Record<string, { items: any[] }>;
+  protected menus: Menus;
   protected cache: Cache;
+
+  [key: string]: ExtensionSpecs | ScratchBlockHandler;
 
   public constructor(option: Option) {
     this.option = option;
@@ -16,25 +29,23 @@ export default class Extension {
     this.menus = {};
 
     if (commonjs) {
-      // @ts-ignore
       import('../i18n/generate').then((module) => {
         const blocks: Record<string, string> = { title: option.name || "" };
         for (const block of option.blocks) blocks[block.opcode] = block.text;
         module.process_i18n(blocks, option.i18n || {}).then(() => 0);
       });
     } else {
-      // @ts-ignore
-      Scratch.translate.setup(source);
+      Scratch.translate.setup(source as Scratch.translate.Translation);
     }
   }
 
 
-  private getBlock(block: Block): object {
+  private getBlock(block: Block): Scratch.Block {
     const cache = block.cache;
     if (cache?.enable) {
       this.cache.register(block.opcode, cache.expiration || 0);
       block.bind = this.cache.cache(block.opcode, block.bind);
-    }  /** @ts-expect-error */
+    }
     this[block.opcode] = block.bind;
     if ((block.menu != null) && (Object.keys(Object(block.menu)).length > 0)) {
       for (const name in block.menu) this.menus[name] = { items: block.menu[name] };
@@ -45,8 +56,8 @@ export default class Extension {
     res?.forEach((arg: string): void => {
       const [variable, type]: string[] = arg.slice(1, -1).split(':');
       block.text = block.text.replace(arg, `[${variable}]`);
-      args[variable] = clean({ // @ts-expect-error
-        type: Scratch.ArgumentType[type.toUpperCase()],
+      args[variable] = clean({
+        type: Scratch.ArgumentType[type.toUpperCase() as keyof typeof Scratch.ArgumentType],
         defaultValue: (block.default != null) ? block.default[variable] : undefined,
         menu: ((block.menu != null) && block.menu[variable]) ? variable : undefined,
       });
@@ -58,10 +69,9 @@ export default class Extension {
       text: translate(block.opcode, block.text),
       arguments: args,
       disableMonitor: block.disableMonitor,
-    });
+    }) as Scratch.Block;
   }
 
-  // @ts-expect-error
   public getInfo(): Scratch.Info {
     return clean({
       id: this.option.id,
@@ -74,13 +84,12 @@ export default class Extension {
       docsURI: this.option.docsURI,
       blocks: this.option.blocks.map((block: Block): object => this.getBlock({...block})),
       menus: this.menus,
-    })
+    }) as Scratch.Info;
   }
 
   public register() {
     if (commonjs) return;
     try {
-      // @ts-expect-error
       Scratch.extensions.register(this);
     } catch (e) {
       console.info(`Failed to load extension ${this.option.name}`);
