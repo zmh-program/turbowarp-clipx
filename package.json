@@ -25,6 +25,7 @@
   "homepage": "https://github.com/zmh-program/turbowarp-clipx#readme",
   "devDependencies": {
     "@turbowarp/types": "^0.0.9",
+    "@types/node": "^20.3.1",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "eslint": "^8.37.0",
     "eslint-config-standard-with-typescript": "^34.0.1",
